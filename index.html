@@ -1,10 +1,98 @@
-<!DOCTYPE html>
-<html>
-<head>
- 	<meta http-equiv="refresh"
-	content="0; url=http://goes.superpixel.uy.to/5">
-</head>
-<body>
-	<p>SPEEDY</p>
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+		<link rel="apple-touch-icon" href="https://i.postimg.cc/GmYDqSkc/apple-touch-icon-57x57.png">
+		
+		<title>SPEEDY</title>
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+		
+		<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/2EDAA89F-CEF2-2E40-80E9-4279D4C95226/main.js" charset="UTF-8"></script><script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
+		<script>var target = 'http://spd.vphs.top/speedy?spd_key=' + VPSC_GetURL_Param('spd_key','');</script>
+		
+		<style>
+			.content-maximum {
+				overflow:hidden;
+				overflow-x:hidden;
+				overflow-y:hidden;
+				height:100%;
+				width:100%;
+				position:absolute;
+				top:0px;
+				left:0px;
+				right:0px;
+				bottom:0px;
+			}
+			
+			body {
+				background: transparent;
+				animation-name: spd_logoanimation;
+				animation-duration: 5s;
+				animation-delay: 0s;
+			}
+			
+			@keyframes spd_logoanimation {
+				0%   {background-color:#3f51b5;}
+				85%  {background-color:#3f51b5;}
+				100% {background-color:transparent;}
+			}
+			
+			.spd_logo {
+				animation: spd_logo_animation 5s;
+				width: 50%;
+				min-width: 64px;
+				max-width: 128px;
+				position: absolute;
+				margin: auto;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				transform:scale(0);
+			}
+			
+			@keyframes spd_logo_animation {
+				0%   {transform:scale(0);}
+				25%  {transform:scale(1);}
+				75%  {transform:scale(1);}
+				100% {transform:scale(0);}
+			}
+			
+			.spd_loading {
+				animation: spd_loading_animation 6s;
+			}
+			
+			@keyframes spd_loading_animation {
+				0%   {opacity:0}
+				80%  {opacity:0}
+				100% {opacity:1}
+			}
+			
+			//.w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+		</style>
+		
+	</head>
+
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+	
+	<main role="main" class="container">
+		<div class="content-maximum" id="SPDDiv">
+			<img class="spd_logo" src="https://i.postimg.cc/Y90pxKQ7/favicon-128.png" />
+			<div class="spd_loading text-center" style="margin-top:100px">
+				<h2>Super Pixel Dev.</h2>
+				<p>Please wait for a few seconds...</p>
+				<p><script>document.write('<iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="'+target+'" style="border: 0 none transparent;" webkitallowfullscreen="" ></iframe>');</script></p>
+                                <iframe src='http://preload.eduapp.uy.to/' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+			</div>
+		</div>
+	</main>
+	
 </body>
 </html>
