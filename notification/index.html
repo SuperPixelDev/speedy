@@ -73,6 +73,12 @@
 	}
   </style>
   
+	<script>
+	  if (location.protocol != 'https:') {
+		location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+	  }
+	</script>  
+	  
   <script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
   <script>
 	var spd_target = VPSC_GetURL_Param('vp_target', 'spd_target');
