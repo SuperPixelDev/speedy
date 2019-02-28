@@ -89,6 +89,12 @@
 	var spd_target = VPSC_GetURL_Param('vp_target', 'spd_target');
 	var spd_config_pubkey = VPSC_GetURL_Param('', 'pub_key');
   </script>
+  
+	<script>
+	  if (location.protocol != 'https:') {
+		location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+	  }
+	</script>
 </head>
 
 <body>
