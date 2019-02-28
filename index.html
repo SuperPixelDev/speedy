@@ -11,10 +11,14 @@
 		
 		<title>SPEEDY | Notification App made simple | By SPD the Super Pixel Dev</title>
 		
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">-->
+		<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
 		
-		<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/2EDAA89F-CEF2-2E40-80E9-4279D4C95226/main.js" charset="UTF-8"></script><script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
-		<script>var target = 'http://beasthost.ga/speedy?spd_key=' + VPSC_GetURL_Param('spd_key','');</script>
+		<script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
+		<script>
+			var vp_domain = 'beasthost.ga';
+			var vp_target = '//'+vp_domain+'/speedy?spd_key=' + VPSC_GetURL_Param('spd_key','');
+		</script>
 		
 <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
@@ -104,10 +108,14 @@
 		<div class="content-maximum" id="SPDDiv">
 			<img class="spd_logo" src="icon/res/mipmap-xxhdpi/SPEEDY.png" />
 			<div class="spd_loading text-center" style="margin-top:100px">
-				<h2>Super Pixel Dev.</h2>
+				<h2>SPEEDY</h2>
+				<p>
+					Notification App Made Simple<br/>
+					<small>By SPD the Super Pixel Dev.</small>
+				</p>
 				<p>Please wait for a few seconds...</p>
-				<p><script>document.write('<iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="'+target+'" style="border: 0 none transparent;" webkitallowfullscreen="" ></iframe>');</script></p>
-                                <iframe src='http://preload.eduapp.uy.to/' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+				<p><script>document.write('<iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="'+vp_target+'" style="border: 0 none transparent;" webkitallowfullscreen="" ></iframe>');</script></p>
+                <iframe src='http://preload.eduapp.uy.to/' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
 			</div>
 		</div>
 	</main>
