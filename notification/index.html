@@ -50,7 +50,8 @@
 
 	pre {
 	  white-space: pre-wrap;
-	  background-color: #EEEEEE;
+	  //background-color: #EEEEEE;
+	  background-color: #009688;
 	  padding: 16px;
 	}
 
@@ -73,31 +74,16 @@
 	}
   </style>
   
-  <!--<link rel="manifest" href="https://speedy.spd.thepixelplaces.com/manifest.json" />
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-  <script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-      OneSignal.init({
-        appId: "ed558a98-2711-417b-88f7-c315db10ccfe",
-      });
-    });
-  </script>-->
-  
-<link rel="manifest" href="https://speedy.spd.thepixelplaces.com/manifest.json" />
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "ed558a98-2711-417b-88f7-c315db10ccfe",
-      autoRegister: false,
-      notifyButton: {
-        enable: true,
-      },
-    });
-  });
-</script>
+	<link rel="manifest" href="/manifest.json" />
+	<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+	<script>
+	  var OneSignal = window.OneSignal || [];
+	  OneSignal.push(function() {
+		OneSignal.init({
+		  appId: "ed558a98-2711-417b-88f7-c315db10ccfe",
+		});
+	  });
+	</script>
   
   <script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
   <script>
@@ -120,11 +106,11 @@
   </header>
 
   <main>
-    <p>Welcome to the SPEEDY Notification Center. Please tap <!--the [Enable the Notification] then select--> ALLOW to receive the up-to-date notifications more conveniently from now on.</p>
-	<p>SPEEDY 알림 센터에 오신 것을 환영합니다. 이후 SPEEDY에서 전해오는 소식들을 더 간편하게 받기 위해 <!--아래 [Enable the Notification]를 터치해주시고--> 허락 (Allow)을 선택해주세요.</p>
+    <p>Welcome to the SPEEDY Notification Center. Please tap the [Enable the Notification] then select ALLOW to receive the up-to-date notifications more conveniently from now on.</p>
+	<p>SPEEDY 알림 센터에 오신 것을 환영합니다. 이후 SPEEDY에서 전해오는 소식들을 더 간편하게 받기 위해 아래 [Enable the Notification]를 터치해주시고 허락 (Allow)을 선택해주세요.</p>
 	<script>if (spd_target != 'spd_target') { document.write('<h5>Your selected school is: '+spd_target.toUpperCase()+'</h5>'); }</script>
     <p style="text-align:center">
-		<!--<div class='onesignal-customlink-container'></div>-->
+		<div class='onesignal-customlink-container'></div>
     </p>
   </main>
 
