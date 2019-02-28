@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="spd.thepixelplaces.com">
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+  <title>SPEEDY | Notification Center</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <!--<link rel="stylesheet" href="index.css">-->
+  <style>
+	html {
+	  height: 100%;
+	}
+
+	html, body {
+	  width: 100%;
+	  padding: 0;
+	  margin: 0;
+	}
+
+	body {
+	  min-height: auto;
+	  box-sizing: border-box;
+	}
+
+	header {
+	  padding: 115px 0 32px 0;
+	  background-color: #00bcd4;
+	  color: white;
+	  text-align: center;
+	}
+
+	main, header > h1 {
+	  padding: 0 16px;
+	  max-width: 760px;
+	  box-sizing: border-box;
+	  margin: 0 auto;
+	}
+
+	main {
+	  margin: 24px auto;
+	  box-sizing: border-box;
+	  text-align: center;
+	}
+
+	pre {
+	  white-space: pre-wrap;
+	  background-color: #EEEEEE;
+	  padding: 16px;
+	}
+
+	pre code {
+	  word-break: break-word;
+	}
+
+	.is-invisible {
+	  opacity: 0;
+	}
+
+	.subscription-details {
+	  transition: opacity 1s;
+	}
+
+	@media (max-width: 600px) {
+	  header > h1 {
+		font-size: 36px;
+	  }
+	}
+  </style>
+  
+  <script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
+  <script>
+	var spd_target = VPSC_GetURL_Param('vp_target', 'spd_target');
+	var spd_config_pubkey = VPSC_GetURL_Param('', 'pub_key');
+  </script>
+</head>
+
+<body>
+
+  <header>
+    <h1>SPEEDY</h1>
+	<h5 style="margin-top:2px">Notification Center</h5>
+  </header>
+
+  <main>
+    <p>Welcome to the SPEEDY Notification Center. Click the [Enable Push Messaging] button below to enable the notification.</p>
+	<h5>Your selected school is: <script>document.write(spd_target.toUpperCase());</script></h5>
+    <p>
+		<script type="application/javascript">
+		var truepushSDK = document.createElement('script');
+		truepushSDK.setAttribute('src','https://app.truepush.com/sdk/app.js?key=5c7749e582cc1befeb82d22b&reload='+new Date().getTime());
+		document.head.appendChild(truepushSDK);
+		</script>
+    </p>
+  </main>
+
+  <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+</body>
+</html>
