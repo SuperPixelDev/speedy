@@ -88,13 +88,18 @@
   </header>
 
   <main>
-    <p>Welcome to the SPEEDY Notification Center. Click the [Enable Push Messaging] button below to enable the notification.</p>
+    <p>Welcome to the SPEEDY Notification Center. Please allow the push notification to get delivered up-to-date.</p>
 	<h5>Your selected school is: <script>document.write(spd_target.toUpperCase());</script></h5>
     <p>
 		<script type="application/javascript">
 		var truepushSDK = document.createElement('script');
 		truepushSDK.setAttribute('src','https://app.truepush.com/sdk/app.js?key=5c7749e582cc1befeb82d22b&reload='+new Date().getTime());
 		document.head.appendChild(truepushSDK);
+		</script>
+		<script>
+		userTags.addTags([{"tagName":spd_target,"tagType":"string","tagValue":spd_target}],function(Error,Response){
+		console.log(Error,Response);
+		});
 		</script>
     </p>
   </main>
