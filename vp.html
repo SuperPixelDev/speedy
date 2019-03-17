@@ -19,7 +19,13 @@
 		<script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
 		<script>
 			var vp_target = VPSC_GetURL_Param('vp', 'https://voltex.upsilos.com/404.html');
+			function SPEEDY_VP_Add(target, name, link) {
+				if (target == vp_target) {
+					vp_target = link;
+				}
+			}
 		</script>
+		<script src="https://assets.speedy.spd.thepixelplaces.com/config/vp-list.js"></script>
 		
 		<script async="async" data-cfasync="false" src="//tharbadir.com/2?z=2457779"></script>
 			
@@ -28,7 +34,7 @@
 				overflow:hidden;
 				overflow-x:hidden;
 				overflow-y:hidden;
-				//height:100%-25px;
+				//height:100%;
 				height:100%-25px;
 				width:100%;
 				position:absolute;
