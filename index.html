@@ -327,6 +327,10 @@ if (user_change !== '') {
 	<script>
 if (user_appid !== '') {
 	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/';
+	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
+	if (user_appname !== '') {
+		document.getElementById("uc_app_name").innerHTML = user_appname;
+	}
 }
 else {
 	user_appid = '';
