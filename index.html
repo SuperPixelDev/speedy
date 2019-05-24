@@ -1,133 +1,340 @@
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="spd.thepixelplaces.com">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="spd.thepixelplaces.com">
 
-		<link rel="apple-touch-icon" href="icon/res/mipmap-xhdpi/SPEEDY.png">
+	<link rel="apple-touch-icon" href="icon/res/mipmap-xhdpi/SPEEDY.png">
 		
-		<title>SPEEDY | Notification App made simple | By SPD the Super Pixel Dev</title>
+	<title>SPEEDY | Made Web Application Platform Simple | By SPD the Super Pixel Dev</title>
+
+	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		
-		<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">-->
-		<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
-		
-		<script src="https://vpsc.upsilos.com/js/GetURLParam.min.js"></script>
-		<script>
-			var vp_domain = 'beasthost.ga';
-			var vp_target = '//'+vp_domain+'/speedy?spd_key=' + VPSC_GetURL_Param('spd_key','');
-		</script>
-		
-		<script async="async" data-cfasync="false" src="//tharbadir.com/2?z=2457779"></script>
-		
-<link rel="manifest" href="/manifest.json" />
-<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "ed558a98-2711-417b-88f7-c315db10ccfe",
-    });
-  });
-</script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://vpsc.upsilos.com/js/all.min.js"></script>
+	<script>
+function SPEEDY_Cookie_Set(cname, cvalue) {
+	VPSC_Cookie_Set(cname, cvalue, 365);
+}
+	
+var user_appid = VPSC_Cookie_Get('user_appid');
+var user_appname = VPSC_Cookie_Get('user_appname');
+
+var user_change = VPSC_GetURL_Param('user_change', '');
+var user_change_new = VPSC_GetURL_Param('user_change_new', '');
+if (user_change !== '') {
+	user_appid = VPSC_GetURL_Param('app', '');
+	SPEEDY_Cookie_Set('user_appid', user_appid);
+	user_appname = VPSC_GetURL_Param('app_name', '');
+	SPEEDY_Cookie_Set('user_appname', user_appname);
+	if (user_change_new !== '') {
+		window.location = 'https://speedy.spd.thepixelplaces.com/';
+	}
+}
+	</script>
 			
-		<style>
-			.content-maximum {
-				overflow:hidden;
-				overflow-x:hidden;
-				overflow-y:hidden;
-				height:100%;
-				width:100%;
-				position:absolute;
-				top:0px;
-				left:0px;
-				right:0px;
-				bottom:0px;
+	<style>
+		.font-roboto {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.font-celestia {
+			font-family: CelestiaRedux, serif;
+		}
+
+		
+		
+		.content-maximum {
+			overflow:hidden;
+			overflow-x:hidden;
+			overflow-y:hidden;
+			//height:100%;
+			height:100%-27px;
+			width:100%;
+			position:absolute;
+			//top:0px;
+			top:27px;
+			left:0px;
+			right:0px;
+			bottom:0px;
+		}
+			
+		body {
+			background: transparent;
+			animation-name: spd_background_animation;
+			animation-duration: 5s;
+			animation-delay: 0s;
+		}
+			
+		@keyframes spd_background_animation {
+			0%   {background-color:#009688;}
+			85%  {background-color:#009688;}
+			100% {background-color:transparent;}
+		}
+			
+		.spd_logo {
+			animation: spd_logo_animation 5s;
+			width: 50%;
+			min-width: 64px;
+			max-width: 128px;
+			position: absolute;
+			margin: auto;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			transform:scale(0);
 			}
 			
-			body {
-				background: transparent;
-				animation-name: spd_logoanimation;
-				animation-duration: 5s;
-				animation-delay: 0s;
-			}
+		@keyframes spd_logo_animation {
+			0%   {transform:scale(0);}
+			25%  {transform:scale(1);}
+			75%  {transform:scale(1);}
+			100% {transform:scale(0);}
+		}
 			
-			@keyframes spd_logoanimation {
-				0%   {background-color:#009688;}
-				85%  {background-color:#009688;}
-				100% {background-color:transparent;}
-			}
+		.spd_loading {
+			animation: spd_loading_animation 6s;
+		}
 			
-			.spd_logo {
-				animation: spd_logo_animation 5s;
-				width: 50%;
-				min-width: 64px;
-				max-width: 128px;
-				position: absolute;
-				margin: auto;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				transform:scale(0);
-			}
+		@keyframes spd_loading_animation {
+			0%   {opacity:0}
+			80%  {opacity:0}
+			100% {opacity:1}
+		}
 			
-			@keyframes spd_logo_animation {
-				0%   {transform:scale(0);}
-				25%  {transform:scale(1);}
-				75%  {transform:scale(1);}
-				100% {transform:scale(0);}
-			}
-			
-			.spd_loading {
+		.spd_navbar {
 				animation: spd_loading_animation 6s;
-			}
+		}
 			
-			@keyframes spd_loading_animation {
-				0%   {opacity:0}
-				80%  {opacity:0}
-				100% {opacity:1}
-			}
+		//.w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
 			
-			//.w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
-		</style>
+		.bg-speedy {
+			background-color: #009688 !important;
+		}
+	</style>
 			
   
-		<script>
-		  //if (location.protocol != 'https:') {
-		  if (location.protocol != 'http:') {
-			//location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-			  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
-		  }
-		</script>
-		
-	</head>
+	<script>
+	  if (location.protocol != 'http:') {
+		  //location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
+	  }
+	</script>
+	
+</head>
 
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 	
+    <nav class="spd_navbar navbar navbar-expand-md navbar-dark bg-speedy fixed-top font-roboto">
+      <a class="navbar-brand" href="https://speedy.spd.thepixelplaces.com/">SPEEDY</a>
+	  
+      <button class="navbar-toggler" type="button" onclick="window.location='https://speedy.spd.thepixelplaces.com/'">
+		<i class="fas fa-home"></i>
+      </button>
+	  
+      <button class="navbar-toggler" type="button" data-toggle="modal" data-target="#SPEEDY_UserControl">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+	  
+      <div class="collapse navbar-collapse" id="navbarSPEEDY">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">User Control:</a>
+          </li>
+		  
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:SPEEDY()" onclick="window.location='https://speedy.spd.thepixelplaces.com/'"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:SPEEDY()" data-toggle="modal" data-target="#SPEEDY_UserControl"><i class="fas fa-bars"></i> Menu</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+	
 	<main role="main" class="container">
-		<div class="content-maximum" id="SPDDiv">
+		<div class="content-maximum" id="SPDApp_Div">
 			<img class="spd_logo" src="icon/res/mipmap-xxhdpi/SPEEDY.png" />
 			<div class="spd_loading text-center" style="margin-top:100px">
-				<p><img src="img/loading.gif" style="width:25%;max-width:75px;min-width:25px" /></p>
-				<h2>SPEEDY</h2>
-				<p>
-					Notification App Made Simple<br/>
-					<small>By SPD the Super Pixel Dev.</small>
-				</p>
-				<p>Please wait for a few seconds...</p>
-				<p><script>document.write('<iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="'+vp_target+'" style="border: 0 none transparent;" webkitallowfullscreen="" ></iframe>');</script></p>
-                <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+				<div id="SPDApp_Loading">
+					<p><img src="img/loading.gif" style="width:25%;max-width:75px;min-width:25px" /></p>
+					<h2>SPEEDY</h2>
+					<p>
+						Web Application Platform Made Simple<br/>
+						<small>By SPD the Super Pixel Dev.</small>
+					</p>
+					<p>Please wait for a few seconds...</p>
+				</div>
+				<p><iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe></script></p>
+                <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
 	</main>
 	
+	<div class="modal fade" id="SPEEDY_UserControl" tabindex="-1" role="dialog" aria-labelledby="SPEEDY_UserControlLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="SPEEDY_UserControlLabel">SPEEDY</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+		  
+			<div class="text-center mb-3">
+				<p id="uc_app">
+					Your Selected App: <b id="uc_app_id">[Not Selected]</b> <small>(<a href="https://speedy.spd.thepixelplaces.com/?user_change=true&user_change_new=true">Change</a>)</small><br/>
+					<small>(<span id="uc_app_name">Please select the app you want to use in the main page.</span>)</small>
+				</p>
+			</div>
+		  
+			<div class="list-group">
+			  <a class="list-group-item list-group-item-action" type="button" data-toggle="modal" data-target="#SPEEDY_UserControl_Credits">
+				<i class="fab fa-connectdevelop"></i> Credits
+			  </a>
+			</div>
+			
+			<div class="list-group">
+			  <a class="list-group-item list-group-item-action" type="button" data-toggle="modal" data-target="#SPEEDY_UserControl_Support">
+				<i class="fab fa-gratipay"></i> Support SPEEDY
+			  </a>
+			</div>
+
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" onclick="window.location='https://speedy.spd.thepixelplaces.com/'"><i class="fas fa-home"></i></button>
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			<!--<button type="button" class="btn btn-success">Apply changes</button>-->
+		  </div>
+		</div>
+	  </div>
+	</div>
 	
 	
 	
-<div class='onesignal-customlink-container'></div>
+	<!-- SPEEDY User Control - Credits -->
+	
+	<div class="modal fade" id="SPEEDY_UserControl_Credits" tabindex="-1" role="dialog" aria-labelledby="SPEEDY_UserControlLabel_Credits" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="SPEEDY_UserControlLabel_Credits">SPEEDY: Credits</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<!--<div class="custom-control custom-checkbox">
+			  <input type="checkbox" class="custom-control-input" id="option_usesystemlanguage" disabled checked>
+			  <label class="custom-control-label" for="option_usesystemlanguage">Use system language</label>
+			</div>-->
+			<div class="list-group">
+			  <ul>
+				<li><b>Created by:</b><br/>SPD the Super Pixel Dev & Voltex Pixel</li>
+				<li><b>Special Thanks to:</b><br/>VPHS.top, GitHub, the Bootstrap team, the Font Awesome team, the jQuery team and those contributors on QCKS IT club</li>
+			  </ul>
+			  <ul>
+				<li>SPD the Super Pixel Dev: <a href="https://speedy.spd.thepixelplaces.com/vp.html?vp=https://spd.thepixelplaces.com/" target="_blank">https://spd.thepixelplaces.com/</a></li>
+				<li>Voltex Pixel: <a href="https://speedy.spd.thepixelplaces.com/vp.html?vp=https://voltex.upsilos.com/" target="_blank">https://voltex.upsilos.com/</a></li>
+			  </ul>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+	
+	<!-- SPEEDY User Control - Support -->
+	
+	<div class="modal fade" id="SPEEDY_UserControl_Support" tabindex="-1" role="dialog" aria-labelledby="SPEEDY_UserControlLabel_Support" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="SPEEDY_UserControlLabel_Support">SPEEDY: Support SPEEDY</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<!--<div class="custom-control custom-checkbox">
+			  <input type="checkbox" class="custom-control-input" id="option_usesystemlanguage" disabled checked>
+			  <label class="custom-control-label" for="option_usesystemlanguage">Use system language</label>
+			</div>-->
+			<div class="list-group">
+			  <h3>SPD the Super Pixel Dev</h3>
+				<ul>
+				  <li>WeChat Pay:<br/><a href="http://phpqrcode.sourceforge.net/qrsample.php?data=wxp://f2f0w5duiV80aha8jiKB807hgwpcpj12o4Ik&ecc=L&matrix=4" target="_blank">See QR Code</a> or visit <a href="wxp://f2f0w5duiV80aha8jiKB807hgwpcpj12o4Ik" target="_blank">wxp://f2f0w5duiV80aha8jiKB807hgwpcpj12o4Ik</a></li>
+				</ul>
+			  <h3>Voltex Pixel</h3>
+				<ul>
+				  <li>Support Voltex Pixel by visiting his website:<br/><a href="https://voltex.upsilos.com/support.html" target="_blank">https://voltex.upsilos.com/support.html</a></li>
+				</ul>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	
+	
+	<!-- SPEEDY API Alert -->
+	
+	<div class="modal fade" id="SPEEDY_API_Alert" tabindex="-1" role="dialog" aria-labelledby="SPEEDY_API_AlertLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="SPEEDY_API_AlertLabel"><span id="span_speedy_api_alert_title"><!--[Title Here]--></span></h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<span id="span_speedy_api_alert_content"><!--Hello World!--></span>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity=
+"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script>
+		function SPEEDYSDK_C_Alert_Simple(title, message) {
+			document.getElementById('span_speedy_api_alert_title').innerHTML = title;
+			document.getElementById('span_speedy_api_alert_content').innerHTML = message;
+			$('#SPEEDY_API_Alert').modal();
+		}
+	</script>
+	
+	<script>
+if (user_appid !== '') {
+	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/';
+}
+else {
+	user_appid = '';
+	document.getElementById("SPDApp_Load").src = 'https://assets.speedy.spd.thepixelplaces.com/html/search.html';
+	document.getElementById("SPDApp_Load").style = 'margin-top: 5px';
+	document.getElementById("SPDApp_Loading").style.opacity = 0;
+}
+	</script>
 	
 </body>
 </html>
