@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="spd.thepixelplaces.com">
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  <meta name="theme-color" content="#009688">
+  <link rel="manifest" href="/manifest.json">
 
   <title>SPEEDY | Notification Center</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <link rel="manifest" href="/manifest.json">
   <!--<link rel="stylesheet" href="index.css">-->
   <style>
 	html {
@@ -130,5 +133,16 @@
   </main>
 
   <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  
+	<script type="application/javascript" src="https://sdk.truepush.com/sdk/app.js"></script>
+	<script>
+	var truepush = window.truepush || [];
+	truepush.push(function(){
+		truepush.Init({
+			id: "5c7749e582cc1befeb82d22b"
+			})
+		})
+	</script>
+
 </body>
 </html>
