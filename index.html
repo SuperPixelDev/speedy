@@ -47,15 +47,13 @@ if (user_change !== '') {
 
 		.font-celestia {
 			font-family: CelestiaRedux, serif;
-		}
-
-		
+		}	
 		
 		.content-maximum {
 			overflow:hidden;
 			overflow-x:hidden;
-			//overflow-y:hidden;
-			overflow-y:scroll;
+			overflow-y:hidden;
+			//overflow-y:scroll;
 			//height:100%;
 			height:100%-26px;
 			width:100%;
@@ -354,6 +352,32 @@ else {
 	document.getElementById("SPDApp_Load").style = 'margin-top: 15px; width: 92%; margin-left: 4%; margin-right: 4%';
 	document.getElementById("SPDApp_Loading").style.opacity = 0;
 }
+
+function Check_iOS() {
+
+  var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+  }
+
+  return false;
+}
+
+if (Check_iOS() == true) {
+	document.getElementsByClassName('.content-maximum').style["overflow-y"] = 'scroll';
+	//alert('iOS');
+}
+
 	</script>
 	
 </body>
