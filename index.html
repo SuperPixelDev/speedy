@@ -103,6 +103,7 @@ if (user_change !== '') {
 			
 		.spd_loading {
 			animation: spd_loading_animation 6s;
+			-webkit-overflow-scrolling: touch;
 		}
 			
 		@keyframes spd_loading_animation {
@@ -168,7 +169,7 @@ if (user_change !== '') {
       </div>
     </nav>
 	
-	<main role="main" class="container">
+	<main role="main" class="container" style="-webkit-overflow-scrolling:touch">
 		<div class="content-maximum" id="SPDApp_Div">
 			<img class="spd_logo" src="icon/res/mipmap-xxhdpi/SPEEDY.png" />
 			<div class="spd_loading text-center" style="margin-top:100px">
@@ -181,7 +182,7 @@ if (user_change !== '') {
 					</p>
 					<p>Please wait for a few seconds...</p>
 				</div>
-				<p><iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe></p>
+				<iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
                 <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
