@@ -345,6 +345,7 @@ if (user_appid !== '') {
 	else {
 		document.getElementById("uc_app_name").innerHTML = 'App Name Unknown';
 	}
+	document.title = "SPEEDY | " + decodeURIComponent(user_appname) + " (" + user_appid.toUpperCase() + ")";
 }
 else {
 	user_appid = '';
