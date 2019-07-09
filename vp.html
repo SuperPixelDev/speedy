@@ -106,7 +106,7 @@
     </nav>
 	
 	<main role="main" class="container">
-		<div class="content-maximum" id="SPDDiv">
+		<div class="content-maximum" id="SPDApp_Div">
 			<img class="spd_logo" src="icon/res/mipmap-xxhdpi/SPEEDY.png" />
 			<div class="spd_loading text-center" style="margin-top:100px">
 				<p><img src="img/loading.gif" style="width:25%;max-width:75px;min-width:25px" /></p>
@@ -116,7 +116,7 @@
 					<small>By SPD the Super Pixel Dev.</small>
 				</p>
 				<p>Please wait for a few seconds...</p>
-				<p><script>document.write('<iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="'+vp_target+'" style="border: 0 none transparent;" webkitallowfullscreen="" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>');</script></p>
+				<p><script>document.write('<iframe class="content-maximum" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="'+vp_target+'" style="border: 0 none transparent;"  id="SPDApp_Load" webkitallowfullscreen="" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>');</script></p>
                 <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
 			</div>
 		</div>
@@ -125,6 +125,35 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+<script>
+function Check_iOS() {
+
+  var iDevices = [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ];
+
+  if (!!navigator.platform) {
+    while (iDevices.length) {
+      if (navigator.platform === iDevices.pop()){ return true; }
+    }
+  }
+
+  return false;
+}
+
+if (Check_iOS() == true) {
+	alert('SPEEDY for iOS');
+	document.getElementById('SPDApp_Load').style["overflow-y"] = 'scroll';
+	document.getElementById('SPDApp_Div').style["overflow-y"] = 'scroll';
+}
+
+</script>
 	
 </body>
 </html>
