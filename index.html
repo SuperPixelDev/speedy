@@ -17,6 +17,27 @@
 		
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	
+	<script>
+		function getMobileOperatingSystem() {
+		  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+			  // Windows Phone must come first because its UA also contains "Android"
+			if (/windows phone/i.test(userAgent)) {
+				return "Windows Phone";
+			}
+
+			if (/android/i.test(userAgent)) {
+				return "Android";
+			}
+
+			// iOS detection from: http://stackoverflow.com/a/9039885/177710
+			if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+				return "iOS";
+			}
+
+			return "unknown";
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://vpsc.upsilos.com/js/all.min.js"></script>
 	<script>
@@ -133,7 +154,7 @@ if (user_change !== '') {
   
 	<script>
 	  if (location.protocol != 'http:') {
-		  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
+		  //location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
 	  }
 	</script>
 	
@@ -322,6 +343,29 @@ if (user_change !== '') {
 	  </div>
 	</div>
 	
+	
+	<div class="modal fade font-roboto" id="VX_Notification" tabindex="-1" role="dialog" aria-labelledby="VX_Notification_Label" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="VX_Notification_Label">Download SPEEDY App!</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body text-center">
+			<p><img src="icon/res/mipmap-xhdpi/SPEEDY.png" style="width:80px" /></p>
+			<p>With the official SPEEDY app, you will be able to access your selected app easily!</p>
+			<a class="btn btn-success btn-lg" href="https://github.com/SuperPixelDev/superpixeldev.github.io/raw/master/SPEEDY_Android.apk" target="_blank"><i class="fab fa-android"></i> Download for Android</a>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" onclick="VPSC_Cookie_Set('notice_donotshow', 'true', 7)" data-dismiss="modal">Do not display this for a week</button>
+			<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity=
 "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -379,6 +423,18 @@ if (Check_iOS() == true) {
 	window.location = '/vx/ios/index.html';
 }
 
+	</script>
+	
+	<!-- App Installment -->
+	<script>
+		var deviceapp = VPSC_GetURL_Param('app', '');
+		var deviceapp_ver = VPSC_GetURL_Param('ver', '');
+		var deviceapp_os = getMobileOperatingSystem();
+		if (VPSC_Cookie_Get('notice_donotshow') == '') {
+			if (deviceapp !== 'true' && deviceapp_os == 'Android') {
+				$('#VX_Notification').modal();
+			}
+		}
 	</script>
 	
 </body>
