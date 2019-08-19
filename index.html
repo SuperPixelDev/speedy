@@ -16,6 +16,19 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		
+	<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
+	<script>
+	var truepush = window.truepush || [];
+	truepush.push(function(){
+		truepush.Init({
+			id: "5c7749e582cc1befeb82d22b"
+			},
+			function(error){
+			  if(error) console.log(error);
+			})
+		})
+	</script>
 	
 	<script>
 		function getMobileOperatingSystem() {
@@ -51,6 +64,9 @@ var user_appname = VPSC_Cookie_Get('user_appname');
 var user_change = VPSC_GetURL_Param('user_change', '');
 var user_change_new = VPSC_GetURL_Param('user_change_new', '');
 if (user_change !== '') {
+	truepush.removeTags([{"tagName":"speedy_appid","tagValue":user_appid}],function(Error,Response){
+		console.log(Error,Response);
+	});
 	user_appid = VPSC_GetURL_Param('app', '');
 	SPEEDY_Cookie_Set('user_appid', user_appid);
 	user_appname = VPSC_GetURL_Param('app_name', '');
@@ -150,7 +166,6 @@ if (user_change !== '') {
 			color: #009688 !important;
 		}
 	</style>
-			
   
 	<script>
 	  if (location.protocol != 'http:') {
@@ -383,6 +398,11 @@ if (user_appid !== '') {
 	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload.php?spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
+	
+	truepush.addTags([{"tagName":"speedy_appid","tagType":"string","tagValue":user_appid}],function(Error,Response){
+	console.log(Error,Response);
+	});
+	
 	if (user_appname !== '') {
 		document.getElementById("uc_app_name").innerHTML = decodeURIComponent(user_appname);
 	}
@@ -459,7 +479,7 @@ var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.r
 // Blink engine detection
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
-	if (isIE == true)
+	if (isIE == true) {
 		alert( "SPEEDY does not operate well in Internet Explorer as it is lack of availability on the latest web technology!" );
 	}
 	</script>
