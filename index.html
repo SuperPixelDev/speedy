@@ -17,10 +17,10 @@
 		
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		
-	<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
+	<!--<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
 	<script>
 	var truepush = window.truepush || [];
-	</script>
+	</script>-->
 	
 	<script>
 		function getMobileOperatingSystem() {
@@ -56,9 +56,9 @@ var user_appname = VPSC_Cookie_Get('user_appname');
 var user_change = VPSC_GetURL_Param('user_change', '');
 var user_change_new = VPSC_GetURL_Param('user_change_new', '');
 if (user_change !== '') {
-	truepush.removeTags([{"tagName":"speedy_appid","tagValue":user_appid}],function(Error,Response){
-		console.log(Error,Response);
-	});
+	//truepush.removeTags([{"tagName":"speedy_appid","tagValue":user_appid}],function(Error,Response){
+	//	console.log(Error,Response);
+	//});
 	user_appid = VPSC_GetURL_Param('app', '');
 	SPEEDY_Cookie_Set('user_appid', user_appid);
 	user_appname = VPSC_GetURL_Param('app_name', '');
@@ -391,7 +391,7 @@ if (user_appid !== '') {
 	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload.php?spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
 	
-	truepush.push(function(){
+	/*truepush.push(function(){
 		truepush.Init({
 			id: "5c7749e582cc1befeb82d22b"
 			},
@@ -401,7 +401,7 @@ if (user_appid !== '') {
 	});
 	truepush.addTags([{"tagName":"speedy_appid","tagType":"string","tagValue":user_appid}],function(Error,Response){
 	console.log(Error,Response);
-	});
+	});*/
 	
 	if (user_appname !== '') {
 		document.getElementById("uc_app_name").innerHTML = decodeURIComponent(user_appname);
