@@ -64,7 +64,7 @@ if (user_change !== '') {
 	user_appname = VPSC_GetURL_Param('app_name', '');
 	SPEEDY_Cookie_Set('user_appname', user_appname);
 	if (user_change_new !== '') {
-		window.location = 'https://speedy.spd.thepixelplaces.com/';
+		window.location = 'http://speedy.spd.thepixelplaces.com/';
 	}
 }
 	</script>
@@ -98,7 +98,7 @@ if (user_change !== '') {
 		body {
 			background: transparent;
 			animation-name: spd_background_animation;
-			animation-duration: 5s;
+			animation-duration: 4s;
 			animation-delay: 0s;
 		}
 			
@@ -109,7 +109,7 @@ if (user_change !== '') {
 		}
 			
 		.spd_logo {
-			animation: spd_logo_animation 5s;
+			animation: spd_logo_animation 4s;
 			width: 50%;
 			min-width: 64px;
 			max-width: 128px;
@@ -170,9 +170,9 @@ if (user_change !== '') {
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 	
     <nav class="spd_navbar navbar navbar-expand-md navbar-dark bg-speedy fixed-top font-roboto">
-      <a class="navbar-brand" href="https://speedy.spd.thepixelplaces.com/">SPEEDY</a>
+      <a class="navbar-brand" href="http://speedy.spd.thepixelplaces.com/">SPEEDY</a>
 	  
-      <button class="navbar-toggler" type="button" onclick="window.location='https://speedy.spd.thepixelplaces.com/'">
+      <button class="navbar-toggler" type="button" onclick="window.location='http://speedy.spd.thepixelplaces.com/'">
 		<i class="fas fa-home"></i>
       </button>
 	  
@@ -228,7 +228,7 @@ if (user_change !== '') {
 		  
 			<div class="text-center mb-3">
 				<p id="uc_app">
-					Your Selected App: <b id="uc_app_id">[Not Selected]</b> <small>(<a href="https://speedy.spd.thepixelplaces.com/?user_change=true&user_change_new=true">Change</a>)</small><br/>
+					Your Selected App: <b id="uc_app_id">[Not Selected]</b> <small>(<a href="http://speedy.spd.thepixelplaces.com/?user_change=true&user_change_new=true">Change</a>)</small><br/>
 					<small>(<span id="uc_app_name">Please select the app you want to use in the main page.</span>)</small>
 				</p>
 			</div>
@@ -247,7 +247,7 @@ if (user_change !== '') {
 
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" onclick="window.location='https://speedy.spd.thepixelplaces.com/'"><i class="fas fa-home"></i></button>
+			<button type="button" class="btn btn-secondary" onclick="window.location='http://speedy.spd.thepixelplaces.com/'"><i class="fas fa-home"></i></button>
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			<!--<button type="button" class="btn btn-success">Apply changes</button>-->
 		  </div>
@@ -311,9 +311,6 @@ if (user_change !== '') {
 			</div>-->
 			<div class="list-group">
 			  <h3>SPD the Super Pixel Dev</h3>
-				<ul>
-				  <li>WeChat Pay:<br/><a href="http://phpqrcode.sourceforge.net/qrsample.php?data=wxp://f2f0w5duiV80aha8jiKB807hgwpcpj12o4Ik&ecc=L&matrix=4" target="_blank">See QR Code</a> or visit <a href="wxp://f2f0w5duiV80aha8jiKB807hgwpcpj12o4Ik" target="_blank">wxp://f2f0w5duiV80aha8jiKB807hgwpcpj12o4Ik</a></li>
-				</ul>
 			  <h3>Voltex Pixel</h3>
 				<ul>
 				  <li>Support Voltex Pixel by visiting his website:<br/><a href="https://voltex.upsilos.com/support.html" target="_blank">https://voltex.upsilos.com/support.html</a></li>
@@ -388,7 +385,7 @@ if (user_change !== '') {
 	<script>
 if (user_appid !== '') {
 	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
-	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload.php?spd_user_name=guest&spd_user_id=guest';
+	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload/?spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
 	
 	/*truepush.push(function(){
