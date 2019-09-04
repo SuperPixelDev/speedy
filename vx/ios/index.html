@@ -9,6 +9,19 @@
 	<meta name="theme-color" content="#009688">
 
 	<link rel="apple-touch-icon" href="https://speedy.spd.thepixelplaces.com/icon/res/mipmap-xhdpi/SPEEDY.png">
+	
+	<link rel="manifest" href="/manifest.webmanifest">
+	<meta name="application-name" content="SPEEDY">
+	
+	<!-- start: Apple Fullscreen and Webapp Title -->
+	<meta name="apple-mobile-web-app-title" content="SPEEDY for iOS" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="#009688" />
+	<!-- end: Apple Fullscreen and Webapp Title -->
+
+	<!-- start: Android Fullscreen -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<!-- end: Android Fullscreen -->
 		
 	<title>SPEEDY for iOS | Made Web Application Platform Simple | By SPD the Super Pixel Dev</title>
 
@@ -79,7 +92,8 @@ function SPEEDY_App_LoadingDisplay() {
 }
 
 function SPEEDY_App_Launch() {
-  void window.open('http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest','1563506864564','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
+  var SPEEDY_App_Window =  window.open('http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest','SPEEDY_App','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
+  SPEEDY_App_Window.focus();
   return false;
 }
 
@@ -143,7 +157,7 @@ if (Check_iOS() !== true) {
 		body {
 			background: transparent;
 			animation-name: spd_background_animation;
-			animation-duration: 5s;
+			animation-duration: 3s;
 			animation-delay: 0s;
 		}
 			
@@ -154,7 +168,7 @@ if (Check_iOS() !== true) {
 		}
 			
 		.spd_logo {
-			animation: spd_logo_animation 5s;
+			animation: spd_logo_animation 3s;
 			width: 50%;
 			min-width: 64px;
 			max-width: 128px;
@@ -175,7 +189,7 @@ if (Check_iOS() !== true) {
 		}
 			
 		.spd_loading {
-			animation: spd_loading_animation 6s;
+			animation: spd_loading_animation 3.5s;
 			-webkit-overflow-scrolling: touch;
 		}
 			
@@ -186,7 +200,7 @@ if (Check_iOS() !== true) {
 		}
 			
 		.spd_navbar {
-				animation: spd_loading_animation 6s;
+				animation: spd_loading_animation 3.5s;
 		}
 			
 		//.w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
@@ -206,8 +220,8 @@ if (Check_iOS() !== true) {
 			
   
 	<script>
-	  if (location.protocol !== 'http:') {
-		  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
+	  if (location.protocol !== 'https:') {
+		  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 	  }
 	</script>
 	
