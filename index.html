@@ -400,19 +400,6 @@ if (user_appid !== '') {
 	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload/?spd_user_name=guest&spd_user_id=guest';
 	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
-	
-	/*truepush.push(function(){
-		truepush.Init({
-			id: "5c7749e582cc1befeb82d22b"
-			},
-			function(error){
-			  if(error) console.log(error);
-			})
-	});
-	truepush.addTags([{"tagName":"speedy_appid","tagType":"string","tagValue":user_appid}],function(Error,Response){
-	console.log(Error,Response);
-	});*/
-	
 	if (user_appname !== '') {
 		document.getElementById("uc_app_name").innerHTML = decodeURIComponent(user_appname);
 	}
@@ -427,6 +414,21 @@ else {
 	document.getElementById("SPDApp_Loading").style.opacity = 0;
 }
 
+</script>
+
+	<!-- App Installment -->
+	<script>
+		var deviceapp = VPSC_GetURL_Param('app', '');
+		var deviceapp_ver = VPSC_GetURL_Param('ver', '');
+		var deviceapp_os = getMobileOperatingSystem();
+		if (VPSC_Cookie_Get('notice_donotshow') == '') {
+			if (deviceapp !== 'true' && deviceapp_os == 'Android') {
+				$('#VX_Notification').modal();
+			}
+		}
+	</script>
+
+	<script>
 function Check_iOS() {
 
   var iDevices = [
@@ -453,51 +455,37 @@ if (Check_iOS() == true) {
 	window.location = '/vx/ios/index.html';
 }
 
-	</script>
-	
-	<!-- App Installment -->
-	<script>
-		var deviceapp = VPSC_GetURL_Param('app', '');
-		var deviceapp_ver = VPSC_GetURL_Param('ver', '');
-		var deviceapp_os = getMobileOperatingSystem();
-		if (VPSC_Cookie_Get('notice_donotshow') == '') {
-			if (deviceapp !== 'true' && deviceapp_os == 'Android') {
-				$('#VX_Notification').modal();
-			}
-		}
-	</script>
-	
-	<script>
-// Opera 8.0+
-var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	// Opera 8.0+
+	var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
-// Firefox 1.0+
-var isFirefox = typeof InstallTrigger !== 'undefined';
+	// Firefox 1.0+
+	var isFirefox = typeof InstallTrigger !== 'undefined';
 
-// Safari 3.0+ "[object HTMLElementConstructor]" 
-var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+	// Safari 3.0+ "[object HTMLElementConstructor]" 
+	var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
 
-// Internet Explorer 6-11
-var isIE = /*@cc_on!@*/false || !!document.documentMode;
+	// Internet Explorer 6-11
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
 
-// Edge 20+
-var isEdge = !isIE && !!window.StyleMedia;
+	// Edge 20+
+	var isEdge = !isIE && !!window.StyleMedia;
 
-// Chrome 1 - 71
-var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+	// Chrome 1 - 71
+	var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
 
-// Blink engine detection
-var isBlink = (isChrome || isOpera) && !!window.CSS;
+	// Blink engine detection
+	var isBlink = (isChrome || isOpera) && !!window.CSS;
 
 	if (isIE == true) {
+		SPEEDYSDK_C_Alert_Simple('Warning!', 'SPEEDY does not operate well in Internet Explorer as it is lack of availability on the latest web technology!');
 		alert( "SPEEDY does not operate well in Internet Explorer as it is lack of availability on the latest web technology!" );
 	}
-	</script>
 	
-	<script>
-		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { 
-			SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', 'Please open SPEEDY with the Internet Browser you use!');
-		}, false);
+	
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { 
+		SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><br/>Please open SPEEDY with the Internet Browser installed on your device!');
+	}, false);
+	
 	</script>
 	
 </body>
