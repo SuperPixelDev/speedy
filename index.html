@@ -494,5 +494,11 @@ var isBlink = (isChrome || isOpera) && !!window.CSS;
 	}
 	</script>
 	
+	<script>
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { 
+			SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', 'Please open SPEEDY with the Internet Browser you use!');
+		}, false);
+	</script>
+	
 </body>
 </html>
