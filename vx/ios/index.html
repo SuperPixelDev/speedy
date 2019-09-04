@@ -348,7 +348,7 @@ if (Check_iOS() !== true) {
 		  <div class="modal-header">
 			<h5 class="modal-title" id="SPEEDY_API_AlertLabel"><span id="span_speedy_api_alert_title"><!--[Title Here]--></span></h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
+			  <span id="span_speedy_api_alert_close"><span aria-hidden="true">&times;</span></span>
 			</button>
 		  </div>
 		  <div class="modal-body">
@@ -387,7 +387,8 @@ else {
 }
 		
 	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { 
-		SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><br/>Please open SPEEDY with the Internet Browser installed on your device!');
+		document.getElementById('span_speedy_api_alert_close').innerHTML = '';
+		SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><p style="margin-top:20px">Please open SPEEDY with the Internet Browser installed on your device!</p>');
 	}, false);
 		
 	</script>
