@@ -386,6 +386,10 @@ else {
 	document.getElementById("speedy_menu").innerHTML = '<a href="#" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#SPEEDY_SelectApp_Alert">Select the App</a>';
 }
 		
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { 
+		SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><br/>Please open SPEEDY with the Internet Browser installed on your device!');
+	}, false);
+		
 	</script>
 	
 </body>
