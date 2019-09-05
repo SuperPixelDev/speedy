@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no, minimal-ui">
 	<meta name="description" content="">
 	<meta name="author" content="spd.thepixelplaces.com">
 	<meta name="theme-color" content="#009688">
@@ -176,14 +176,13 @@ if (user_change !== '') {
 	  if (location.protocol != 'http:') {
 		  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
 	  }
-          //document.body.requestFullscreen();
 	</script>
 	
 </head>
 
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 	
-    <nav class="spd_navbar navbar navbar-expand-md navbar-dark bg-speedy fixed-top font-roboto" onclick="document.body.requestFullscreen();">
+    <nav class="spd_navbar navbar navbar-expand-md navbar-dark bg-speedy fixed-top font-roboto">
       <a class="navbar-brand" href="http://speedy.spd.thepixelplaces.com/">SPEEDY</a>
 	  
       <button class="navbar-toggler" type="button" onclick="window.location='http://speedy.spd.thepixelplaces.com/'">
@@ -223,7 +222,7 @@ if (user_change !== '') {
 					</p>
 					<p>Please wait for a few seconds...</p>
 				</div>
-				<iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" onclick="document.body.requestFullscreen();"></iframe>
+				<iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
                 <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
@@ -427,7 +426,6 @@ else {
 				$('#VX_Notification').modal();
 			}
 		}
-                document.body.requestFullscreen();
 	</script>
 
 	<script>
