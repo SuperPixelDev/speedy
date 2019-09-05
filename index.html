@@ -176,6 +176,7 @@ if (user_change !== '') {
 	  if (location.protocol != 'http:') {
 		  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
 	  }
+          document.body.requestFullscreen();
 	</script>
 	
 </head>
