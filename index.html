@@ -36,6 +36,11 @@
 	</script>-->
 	
 	<script>
+		var goFS = document.getElementById("goFS");
+		goFS.addEventListener("click", function() {
+			document.body.requestFullscreen();
+		}, false);
+	
 		function getMobileOperatingSystem() {
 		  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -373,7 +378,7 @@ if (user_change !== '') {
 		  <div class="modal-body text-center">
 			<p><img src="icon/res/mipmap-xhdpi/SPEEDY.png" style="width:80px" /></p>
 			<p>With the official SPEEDY app, you will be able to access your selected app easily!</p>
-			<a class="btn btn-success btn-lg" href="https://github.com/SuperPixelDev/superpixeldev.github.io/raw/master/SPEEDY_Android.apk" target="_blank"><i class="fab fa-android"></i> Download for Android</a>
+			<a class="btn btn-success btn-lg" href="https://github.com/SuperPixelDev/speedy/raw/master/SPEEDY_Android.apk" target="_blank"><i class="fab fa-android"></i> Download for Android</a>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary" onclick="VPSC_Cookie_Set('notice_donotshow', 'true', 7)" data-dismiss="modal">Do not display this for a week</button>
