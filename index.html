@@ -29,11 +29,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 		
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-		
-	<!--<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
-	<script>
-	var truepush = window.truepush || [];
-	</script>-->
 	
 	<script>
 		var goFS = document.getElementById("goFS");
@@ -62,8 +57,16 @@
 		}
 	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://vpsc.upsilos.com/js/all.min.js"></script>
 	<script>
+/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / AVT.js */
+var VPSC_AVT_Default='<a href="http://vgo.upsilos.com/youtube" target="_blank"><img style="width:300px;height:250px" src="http://voltex.upsilos.com/files/voltexpixel_youtube.jpg" /></a>',VPSC_AVT_Code=new Array;function VPSC_AVT_Banner(e,o){VPSC_AVT_Code.push('<a href="'+e+'" target="_blank"><img style="width:300px;height:250px" src="'+o+'"/></a>')}function VPSC_AVT_Iframe(e){VPSC_AVT_Code.push('<iframe src="'+e+'" scrolling="no" style="width:300px;height:250px;border:0px;padding:0;overflow:hidden" allowtransparency="true" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>')}function VPSC_AVT(){VPSC_AVT_Code.push(VPSC_AVT_Default);var e=parseInt(100*Math.random())%VPSC_AVT_Code.length,o=VPSC_AVT_Code[e];document.write(o)}
+/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / Cookie.js */
+function VPSC_Cookie_Set(cname,cvalue,exdays){var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));var expires="expires="+d.toUTCString();document.cookie=cname+"="+cvalue+";"+expires+";path=/"}function VPSC_Cookie_Get(cname){var name=cname+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i+=1){var c=ca[i];while(c.charAt(0)==' '){c=c.substring(1)}if(c.indexOf(name)==0){return c.substring(name.length,c.length)}}return ""}
+/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / GetURLParam.js */
+function VPSC_GetURL_Vars(){var n={};window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(r,e,t){n[e]=t});return n}function VPSC_GetURL_Param(n,r){var e=r;return window.location.href.indexOf(n)>-1&&(e=VPSC_GetURL_Vars()[n]),e}
+/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / ReadTextFile.js */
+function VPSC_ReadTextFile(file,callback){var rawFile=new XMLHttpRequest();rawFile.overrideMimeType("application/json");rawFile.open("GET",file,true);rawFile.onreadystatechange=function(){if(rawFile.readyState===4&&rawFile.status=="200"){callback(rawFile.responseText)}};rawFile.send(null)}
+	
 function SPEEDY_Cookie_Set(cname, cvalue) {
 	VPSC_Cookie_Set(cname, cvalue, 365);
 }
@@ -175,17 +178,67 @@ if (user_change !== '') {
 		.text-speedy {
 			color: #009688 !important;
 		}
+		
+		progress[value] {color:#009688} /* IE10 */
+		progress::-webkit-progress-bar-value {background:#009688}
+		progress::-webkit-progress-value {background:#009688}
+		progress::-moz-progress-bar {background:#009688}
 	</style>
   
 	<script>
 	  if (location.protocol != 'http:') {
 		  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
 	  }
+	  
+	  function SPEEDY_Console_Loading(msg) {
+		if (msg !== '') {
+			document.getElementById('speedy_console_loading').innerHTML = msg;
+		}
+		else {
+			document.getElementById('speedy_console_loading').innerHTML = '';
+		}
+	  }
+	  
+	  
+	  var SPEEDY_LoadingEmulator = false;
+	  var SPEEDY_LoadingEmulator_Interval;
+	  var SPEEDY_LoadingEmulator_Var = 0;
+	  var SPEEDY_LoadingEmulator_Available = false;
+	  var SPEEDY_LoadingEmulator_ReloadHTML = '<p>It takes longer than expected...?</p><p><a href="http://speedy.spd.thepixelplaces.com/" class="btn btn-success btn-lg"><i class="fas fa-redo"></i> Reload</a></p>';
+	  
+	  function SPEEDY_Console_Loading_Emulator() {
+	    if (SPEEDY_LoadingEmulator_Available == true) {
+			if (SPEEDY_LoadingEmulator == true) {
+				SPEEDY_LoadingEmulator_Var++;
+				if (SPEEDY_LoadingEmulator_Var >= 100) {
+					SPEEDY_LoadingEmulator_Var = 100;
+					if (document.getElementById('speedy_console_loading').innerHTML !== SPEEDY_LoadingEmulator_ReloadHTML) {
+						SPEEDY_Console_Loading(SPEEDY_LoadingEmulator_ReloadHTML);
+					}
+				}
+				else if (SPEEDY_LoadingEmulator_Var >= 50) {
+					SPEEDY_Console_Loading('Keep loading...');
+				}
+				else {
+					SPEEDY_Console_Loading('');
+				}
+				SPEEDY_Console_LoadingBar(SPEEDY_LoadingEmulator_Var);
+			}
+			else {
+				SPEEDY_LoadingEmulator = true;
+				SPEEDY_LoadingEmulator_Interval = setInterval(SPEEDY_Console_Loading_Emulator, 150);
+			}
+		}
+	  }
+	  
+	  function SPEEDY_UserAction_Touch() {
+		SPEEDY_Console_LoadingBar(0);
+	  }
 	</script>
 	
 </head>
 
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onclick="SPEEDY_UserAction_Touch()">
 	
     <nav class="spd_navbar navbar navbar-expand-md navbar-dark bg-speedy fixed-top font-roboto">
       <a class="navbar-brand" href="http://speedy.spd.thepixelplaces.com/">SPEEDY</a>
@@ -205,7 +258,7 @@ if (user_change !== '') {
           </li>
 		  
           <li class="nav-item">
-            <a class="nav-link" href="javascript:SPEEDY()" onclick="window.location='https://speedy.spd.thepixelplaces.com/'"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="javascript:SPEEDY()" onclick="window.location='http://speedy.spd.thepixelplaces.com/'"><i class="fas fa-home"></i> Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="javascript:SPEEDY()" data-toggle="modal" data-target="#SPEEDY_UserControl"><i class="fas fa-bars"></i> Menu</a>
@@ -226,12 +279,29 @@ if (user_change !== '') {
 						<small>By SPD the Super Pixel Dev.</small>
 					</p>
 					<p>Please wait for a few seconds...</p>
+					<div class="container" id="speedy_console_loadingbar_container">
+						<progress id="speedy_console_loadingbar" max="100" value="0" style="width:75%;max-width:300px"></progress>
+						<script>
+							function SPEEDY_Console_LoadingBar(percentage) {
+								speedy_console_loadingbar.value = percentage;
+								if (percentage >= 100) {
+									document.getElementById('speedy_console_loadingbar_container').style.opacity = 0;
+								}
+								else {
+									document.getElementById('speedy_console_loadingbar_container').style.opacity = 1;
+								}
+							}
+						</script>
+					</div>
+					<p id="speedy_console_loading"></p>
 				</div>
 				<iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
                 <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
 	</main>
+	
+	<script>SPEEDY_Console_LoadingBar(50); SPEEDY_Console_Loading('Loading User Control Panel...'); </script>
 	
 	<div class="modal fade" id="SPEEDY_UserControl" tabindex="-1" role="dialog" aria-labelledby="SPEEDY_UserControlLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -297,8 +367,8 @@ if (user_change !== '') {
 				<li><b>Special Thanks to:</b><br/>VPHS.top, GitHub, the Bootstrap team, the Font Awesome team, the jQuery team and those contributors on QCKS IT club</li>
 			  </ul>
 			  <ul>
-				<li>SPD the Super Pixel Dev: <a href="https://speedy.spd.thepixelplaces.com/vp.html?vp=https://spd.thepixelplaces.com/" target="_blank">https://spd.thepixelplaces.com/</a></li>
-				<li>Voltex Pixel: <a href="https://speedy.spd.thepixelplaces.com/vp.html?vp=https://voltex.upsilos.com/" target="_blank">https://voltex.upsilos.com/</a></li>
+				<li>SPD the Super Pixel Dev: <a href="http://speedy.spd.thepixelplaces.com/vp.html?vp=https://spd.thepixelplaces.com/" target="_blank">https://spd.thepixelplaces.com/</a></li>
+				<li>Voltex Pixel: <a href="http://speedy.spd.thepixelplaces.com/vp.html?vp=https://voltex.upsilos.com/" target="_blank">https://voltex.upsilos.com/</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -342,7 +412,7 @@ if (user_change !== '') {
 	  </div>
 	</div>
 	
-	
+	<script>SPEEDY_Console_LoadingBar(60); SPEEDY_Console_Loading('Loading SPEEDY API...'); </script>
 	
 	<!-- SPEEDY API Alert -->
 	
@@ -388,6 +458,8 @@ if (user_change !== '') {
 	  </div>
 	</div>
 	
+	<script>SPEEDY_Console_LoadingBar(70); SPEEDY_Console_Loading('Loading external JavaScript...'); </script>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity=
 "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -398,28 +470,25 @@ if (user_change !== '') {
 			document.getElementById('span_speedy_api_alert_content').innerHTML = message;
 			$('#SPEEDY_API_Alert').modal();
 		}
+		
+		if (user_appid !== '') {
+			document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
+			document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload/?spd_user_name=guest&spd_user_id=guest';
+			document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
+			if (user_appname !== '') {
+				document.getElementById("uc_app_name").innerHTML = decodeURIComponent(user_appname);
+			}
+			else {
+				document.getElementById("uc_app_name").innerHTML = 'App Name Unknown';
+			}
+		}
+		else {
+			user_appid = '';
+			document.getElementById("SPDApp_Load").src = 'https://assets.speedy.spd.thepixelplaces.com/html/search.html';
+			document.getElementById("SPDApp_Load").style = 'margin-top: 15px; width: 92%; margin-left: 4%; margin-right: 4%';
+			document.getElementById("SPDApp_Loading").style.opacity = 0;
+		}
 	</script>
-	
-	<script>
-if (user_appid !== '') {
-	document.getElementById("SPDApp_Load").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
-	document.getElementById("SPDApp_PreLoad").src = 'http://'+user_appid+'-speedy.vphs.top/speedy/preload/?spd_user_name=guest&spd_user_id=guest';
-	document.getElementById("uc_app_id").innerHTML = user_appid.toUpperCase();	//user_appid
-	if (user_appname !== '') {
-		document.getElementById("uc_app_name").innerHTML = decodeURIComponent(user_appname);
-	}
-	else {
-		document.getElementById("uc_app_name").innerHTML = 'App Name Unknown';
-	}
-}
-else {
-	user_appid = '';
-	document.getElementById("SPDApp_Load").src = 'https://assets.speedy.spd.thepixelplaces.com/html/search.html';
-	document.getElementById("SPDApp_Load").style = 'margin-top: 15px; width: 92%; margin-left: 4%; margin-right: 4%';
-	document.getElementById("SPDApp_Loading").style.opacity = 0;
-}
-
-</script>
 
 	<!-- App Installment -->
 	<script>
@@ -433,32 +502,34 @@ else {
 		}
 	</script>
 
+	<script>SPEEDY_Console_LoadingBar(90); SPEEDY_Console_Loading('Reading Device information...'); </script>
+	
 	<script>
-function Check_iOS() {
+	function Check_iOS() {
 
-  var iDevices = [
-    'iPad Simulator',
-    'iPhone Simulator',
-    'iPod Simulator',
-    'iPad',
-    'iPhone',
-    'iPod'
-  ];
+	  var iDevices = [
+		'iPad Simulator',
+		'iPhone Simulator',
+		'iPod Simulator',
+		'iPad',
+		'iPhone',
+		'iPod'
+	  ];
 
-  if (!!navigator.platform) {
-    while (iDevices.length) {
-      if (navigator.platform === iDevices.pop()){ return true; }
-    }
-  }
+	  if (!!navigator.platform) {
+		while (iDevices.length) {
+		  if (navigator.platform === iDevices.pop()){ return true; }
+		}
+	  }
 
-  return false;
-}
+	  return false;
+	}
 
-if (Check_iOS() == true) {
-	//document.getElementById('SPDApp_Load').style["overflow-y"] = 'scroll';
-	//document.getElementById('SPDApp_Div').style["overflow-y"] = 'scroll';
-	window.location = '/vx/ios/index.html';
-}
+	if (Check_iOS() == true) {
+		//document.getElementById('SPDApp_Load').style["overflow-y"] = 'scroll';
+		//document.getElementById('SPDApp_Div').style["overflow-y"] = 'scroll';
+		window.location = '/vx/ios/index.html';
+	}
 
 	// Opera 8.0+
 	var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
@@ -493,6 +564,8 @@ if (Check_iOS() == true) {
 	}, false);
 	
 	</script>
+	
+	<script>SPEEDY_Console_LoadingBar(100); SPEEDY_Console_Loading(''); SPEEDY_LoadingEmulator_Available = true; SPEEDY_Console_Loading_Emulator();</script>
 	
 </body>
 </html>
