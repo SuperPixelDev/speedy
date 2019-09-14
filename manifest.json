@@ -1,0 +1,40 @@
+{
+  "short_name": "SPEEDY",
+  "name": "SPEEDY",
+  "theme_color": "#009688",
+  "background_color": "#F7F8F9",
+  "display": "standalone",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "/icon/res/mipmap-mdpi/SPEEDY.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/icon/res/mipmap-hdpi/SPEEDY.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "/icon/res/mipmap-xhdpi/SPEEDY.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "/icon/res/mipmap-xxhdpi/SPEEDY.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "/icon/res/mipmap-xxxhdpi/SPEEDY.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    }
+  ],
+  "start_url": "/index.html"
+}

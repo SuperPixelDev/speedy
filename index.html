@@ -9,8 +9,6 @@
 	<meta name="theme-color" content="#009688">
 
 	<link rel="apple-touch-icon" href="icon/res/mipmap-xhdpi/SPEEDY.png">
-	
-	<link rel="manifest" href="manifest.webmanifest">
 	<meta name="application-name" content="SPEEDY">
 	
 	<!-- start: Apple Fullscreen and Webapp Title -->
@@ -22,6 +20,8 @@
 	<!-- start: Android Fullscreen -->
 	<meta name="mobile-web-app-capable" content="yes">
 	<!-- end: Android Fullscreen -->
+	
+	<link rel="manifest" href="/manifest.json">
 		
 	<title>SPEEDY | Made Web Application Platform Simple | By SPD the Super Pixel Dev</title>
 
@@ -291,17 +291,16 @@
 	
 	<script>SPEEDY_Console_LoadingBar(100); SPEEDY_Console_Loading(''); SPEEDY_LoadingEmulator_Available = true; SPEEDY_Console_Loading_Emulator();</script>
 	
-	<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
 	<script>
-	var truepush = window.truepush || [];
-	truepush.push(function(){
-		truepush.Init({
-			id: "5c7749e582cc1befeb82d22b"
-			},
-			function(error){
-			  if(error) console.log(error);
-			})
-		})
+		// CODELAB: Register service worker.
+		if ('serviceWorker' in navigator) {
+		  window.addEventListener('load', () => {
+			navigator.serviceWorker.register('/sw.js')
+				.then((reg) => {
+				  console.log('Service worker registered.', reg);
+				});
+		  });
+		}
 	</script>
 	
 </body>
