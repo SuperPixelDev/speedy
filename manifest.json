@@ -4,7 +4,6 @@
   "theme_color": "#009688",
   "background_color": "#F7F8F9",
   "display": "standalone",
-  "orientation": "landscape",
   "icons": [
     {
       "src": "/icon/res/mipmap-mdpi/SPEEDY.png",
