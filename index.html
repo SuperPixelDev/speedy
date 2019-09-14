@@ -94,7 +94,7 @@
 					<p id="speedy_console_loading"></p>
 				</div>
 				<iframe class="content-maximum spd_engine" height="100%" width="100%" allowfullscreen="" frameborder="0" scrolling="yes" src="" style="border: 0 none transparent;" webkitallowfullscreen="" id="SPDApp_Load" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts" ></iframe>
-                <iframe src='http://assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
+                <iframe src='//assets.speedy.spd.thepixelplaces.com/html/load.html' scrolling='no' style='border:0px; padding:0;overflow:hidden' allowtransparency='true' id="SPDApp_PreLoad" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>
 			</div>
 		</div>
 	</main>
@@ -114,7 +114,7 @@
 		  
 			<div class="text-center mb-3">
 				<p id="uc_app">
-					Your Selected App: <b id="uc_app_id">[Not Selected]</b> <small>(<a href="http://speedy.spd.thepixelplaces.com/?user_change=true&user_change_new=true">Change</a>)</small><br/>
+					Your Selected App: <b id="uc_app_id">[Not Selected]</b> <small>(<a href="https://speedy.spd.thepixelplaces.com/?user_change=true&user_change_new=true">Change</a>)</small><br/>
 					<small>(<span id="uc_app_name">Please select the app you want to use in the main page.</span>)</small>
 				</p>
 			</div>
@@ -278,7 +278,7 @@
 		}
 		else {
 			user_appid = '';
-			document.getElementById("SPDApp_Load").src = 'https://assets.speedy.spd.thepixelplaces.com/html/search.html';
+			document.getElementById("SPDApp_Load").src = '//assets.speedy.spd.thepixelplaces.com/html/search.html';
 			document.getElementById("SPDApp_Load").style = 'margin-top: 15px; width: 92%; margin-left: 4%; margin-right: 4%';
 			document.getElementById("SPDApp_Loading").style.opacity = 0;
 		}
@@ -286,8 +286,8 @@
 
 	<script>SPEEDY_Console_LoadingBar(90); SPEEDY_Console_Loading('Reading Device Information...'); </script>
 	
-	<script src="spd.device.check.js"></script>
-	<script src="spd.device.installment.js"></script>
+	<script src="resource/js/spd.device.check.js"></script>
+	<script src="resource/js/spd.device.installment.js"></script>
 	
 	<script>SPEEDY_Console_LoadingBar(100); SPEEDY_Console_Loading(''); SPEEDY_LoadingEmulator_Available = true; SPEEDY_Console_Loading_Emulator();</script>
 	
