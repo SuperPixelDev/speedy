@@ -27,217 +27,12 @@
 
 	<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-		
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="resource/css/spd.base.css" rel="stylesheet">
 	
-	<script>
-		var goFS = document.getElementById("goFS");
-		goFS.addEventListener("click", function() {
-			document.body.requestFullscreen();
-		}, false);
-	
-		function getMobileOperatingSystem() {
-		  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-			  // Windows Phone must come first because its UA also contains "Android"
-			if (/windows phone/i.test(userAgent)) {
-				return "Windows Phone";
-			}
-
-			if (/android/i.test(userAgent)) {
-				return "Android";
-			}
-
-			// iOS detection from: http://stackoverflow.com/a/9039885/177710
-			if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-				return "iOS";
-			}
-
-			return "unknown";
-		}
-	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script>
-/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / AVT.js */
-var VPSC_AVT_Default='<a href="http://vgo.upsilos.com/youtube" target="_blank"><img style="width:300px;height:250px" src="http://voltex.upsilos.com/files/voltexpixel_youtube.jpg" /></a>',VPSC_AVT_Code=new Array;function VPSC_AVT_Banner(e,o){VPSC_AVT_Code.push('<a href="'+e+'" target="_blank"><img style="width:300px;height:250px" src="'+o+'"/></a>')}function VPSC_AVT_Iframe(e){VPSC_AVT_Code.push('<iframe src="'+e+'" scrolling="no" style="width:300px;height:250px;border:0px;padding:0;overflow:hidden" allowtransparency="true" sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"></iframe>')}function VPSC_AVT(){VPSC_AVT_Code.push(VPSC_AVT_Default);var e=parseInt(100*Math.random())%VPSC_AVT_Code.length,o=VPSC_AVT_Code[e];document.write(o)}
-/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / Cookie.js */
-function VPSC_Cookie_Set(cname,cvalue,exdays){var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));var expires="expires="+d.toUTCString();document.cookie=cname+"="+cvalue+";"+expires+";path=/"}function VPSC_Cookie_Get(cname){var name=cname+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i+=1){var c=ca[i];while(c.charAt(0)==' '){c=c.substring(1)}if(c.indexOf(name)==0){return c.substring(name.length,c.length)}}return ""}
-/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / GetURLParam.js */
-function VPSC_GetURL_Vars(){var n={};window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(r,e,t){n[e]=t});return n}function VPSC_GetURL_Param(n,r){var e=r;return window.location.href.indexOf(n)>-1&&(e=VPSC_GetURL_Vars()[n]),e}
-/* VPSC Library (http://vpsc.upsilos.com/) - JavaScript / ReadTextFile.js */
-function VPSC_ReadTextFile(file,callback){var rawFile=new XMLHttpRequest();rawFile.overrideMimeType("application/json");rawFile.open("GET",file,true);rawFile.onreadystatechange=function(){if(rawFile.readyState===4&&rawFile.status=="200"){callback(rawFile.responseText)}};rawFile.send(null)}
-	
-function SPEEDY_Cookie_Set(cname, cvalue) {
-	VPSC_Cookie_Set(cname, cvalue, 365);
-}
-	
-var user_appid = VPSC_Cookie_Get('user_appid');
-var user_appname = VPSC_Cookie_Get('user_appname');
-
-var user_change = VPSC_GetURL_Param('user_change', '');
-var user_change_new = VPSC_GetURL_Param('user_change_new', '');
-if (user_change !== '') {
-	//truepush.removeTags([{"tagName":"speedy_appid","tagValue":user_appid}],function(Error,Response){
-	//	console.log(Error,Response);
-	//});
-	user_appid = VPSC_GetURL_Param('app', '');
-	SPEEDY_Cookie_Set('user_appid', user_appid);
-	user_appname = VPSC_GetURL_Param('app_name', '');
-	SPEEDY_Cookie_Set('user_appname', user_appname);
-	if (user_change_new !== '') {
-		window.location = 'http://speedy.spd.thepixelplaces.com/';
-	}
-}
-	</script>
-			
-	<style>
-		.font-roboto {
-			font-family: 'Roboto', sans-serif;
-		}
-
-		.font-celestia {
-			font-family: CelestiaRedux, serif;
-		}	
-		
-		.content-maximum {
-			overflow:hidden;
-			overflow-x:hidden;
-			overflow-y:hidden;
-			//overflow-y:scroll;
-			//height:100%;
-			height:100%-26px;
-			width:100%;
-			position: absolute;
-			//top:0px;
-			top:26px;
-			left:0px;
-			right:0px;
-			bottom:0px;
-			-webkit-overflow-scrolling: touch;
-		}
-			
-		body {
-			background: transparent;
-			animation-name: spd_background_animation;
-			animation-duration: 3s;
-			animation-delay: 0s;
-		}
-			
-		@keyframes spd_background_animation {
-			0%   {background-color:#009688;}
-			85%  {background-color:#009688;}
-			100% {background-color:transparent;}
-		}
-			
-		.spd_logo {
-			animation: spd_logo_animation 3s;
-			width: 50%;
-			min-width: 64px;
-			max-width: 128px;
-			position: absolute;
-			margin: auto;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			transform:scale(0);
-			}
-			
-		@keyframes spd_logo_animation {
-			0%   {transform:scale(0);}
-			25%  {transform:scale(1);}
-			75%  {transform:scale(1);}
-			100% {transform:scale(0);}
-		}
-			
-		.spd_loading {
-			animation: spd_loading_animation 3.5s;
-			-webkit-overflow-scrolling: touch;
-		}
-			
-		@keyframes spd_loading_animation {
-			0%   {opacity:0}
-			80%  {opacity:0}
-			100% {opacity:1}
-		}
-			
-		.spd_navbar {
-				animation: spd_loading_animation 3.5s;
-		}
-			
-		//.w3-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
-		
-		.spd_engine {
-			-webkit-overflow-scrolling: touch;
-		}
-		
-		.bg-speedy {
-			background-color: #009688 !important;
-		}
-		
-		.text-speedy {
-			color: #009688 !important;
-		}
-		
-		progress[value] {color:#009688} /* IE10 */
-		progress::-webkit-progress-bar-value {background:#009688}
-		progress::-webkit-progress-value {background:#009688}
-		progress::-moz-progress-bar {background:#009688}
-	</style>
-  
-	<script>
-	  if (location.protocol != 'http:') {
-		  location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
-	  }
-	  
-	  function SPEEDY_Console_Loading(msg) {
-		if (msg !== '') {
-			document.getElementById('speedy_console_loading').innerHTML = msg;
-		}
-		else {
-			document.getElementById('speedy_console_loading').innerHTML = '';
-		}
-	  }
-	  
-	  
-	  var SPEEDY_LoadingEmulator = false;
-	  var SPEEDY_LoadingEmulator_Interval;
-	  var SPEEDY_LoadingEmulator_Var = 0;
-	  var SPEEDY_LoadingEmulator_Available = false;
-	  var SPEEDY_LoadingEmulator_ReloadHTML = '<p>It takes longer than expected...?</p><p><a href="http://speedy.spd.thepixelplaces.com/" class="btn btn-success btn-lg"><i class="fas fa-redo"></i> Reload</a></p>';
-	  
-	  function SPEEDY_Console_Loading_Emulator() {
-	    if (SPEEDY_LoadingEmulator_Available == true) {
-			if (SPEEDY_LoadingEmulator == true) {
-				SPEEDY_LoadingEmulator_Var++;
-				if (SPEEDY_LoadingEmulator_Var >= 100) {
-					SPEEDY_LoadingEmulator_Var = 100;
-					if (document.getElementById('speedy_console_loading').innerHTML !== SPEEDY_LoadingEmulator_ReloadHTML) {
-						SPEEDY_Console_Loading(SPEEDY_LoadingEmulator_ReloadHTML);
-					}
-				}
-				else if (SPEEDY_LoadingEmulator_Var >= 50) {
-					SPEEDY_Console_Loading('Keep loading...');
-				}
-				else {
-					SPEEDY_Console_Loading('');
-				}
-				SPEEDY_Console_LoadingBar(SPEEDY_LoadingEmulator_Var);
-			}
-			else {
-				SPEEDY_LoadingEmulator = true;
-				SPEEDY_LoadingEmulator_Interval = setInterval(SPEEDY_Console_Loading_Emulator, 150);
-			}
-		}
-	  }
-	  
-	  function SPEEDY_UserAction_Touch() {
-		SPEEDY_LoadingEmulator_Var = 0;
-	  }
-		window.onclick = function() {
-		   SPEEDY_UserAction_Touch();
-		}
-	</script>
+	<script src="resource/js/vx.vpsc.min.js"></script>
+	<script src="resource/js/spd.usersettings.js"></script>
 	
 </head>
 
@@ -360,18 +155,14 @@ if (user_change !== '') {
 			</button>
 		  </div>
 		  <div class="modal-body">
-			<!--<div class="custom-control custom-checkbox">
-			  <input type="checkbox" class="custom-control-input" id="option_usesystemlanguage" disabled checked>
-			  <label class="custom-control-label" for="option_usesystemlanguage">Use system language</label>
-			</div>-->
 			<div class="list-group">
 			  <ul>
 				<li><b>Created by:</b><br/>SPD the Super Pixel Dev & Voltex Pixel</li>
 				<li><b>Special Thanks to:</b><br/>VPHS.top, GitHub, the Bootstrap team, the Font Awesome team, the jQuery team and those contributors on QCKS IT club</li>
 			  </ul>
 			  <ul>
-				<li>SPD the Super Pixel Dev: <a href="http://speedy.spd.thepixelplaces.com/vp.html?vp=https://spd.thepixelplaces.com/" target="_blank">https://spd.thepixelplaces.com/</a></li>
-				<li>Voltex Pixel: <a href="http://speedy.spd.thepixelplaces.com/vp.html?vp=https://voltex.upsilos.com/" target="_blank">https://voltex.upsilos.com/</a></li>
+				<li>SPD the Super Pixel Dev: <a href="https://spd.thepixelplaces.com/" target="_blank">https://spd.thepixelplaces.com/</a></li>
+				<li>Voltex Pixel: <a href="https://voltex.upsilos.com/" target="_blank">https://voltex.upsilos.com/</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -493,80 +284,10 @@ if (user_change !== '') {
 		}
 	</script>
 
-	<!-- App Installment -->
-	<script>
-		var deviceapp = VPSC_GetURL_Param('app', '');
-		var deviceapp_ver = VPSC_GetURL_Param('ver', '');
-		var deviceapp_os = getMobileOperatingSystem();
-		if (VPSC_Cookie_Get('notice_donotshow') == '') {
-			if (deviceapp !== 'true' && deviceapp_os == 'Android') {
-				$('#VX_Notification').modal();
-			}
-		}
-	</script>
-
-	<script>SPEEDY_Console_LoadingBar(90); SPEEDY_Console_Loading('Reading Device information...'); </script>
+	<script>SPEEDY_Console_LoadingBar(90); SPEEDY_Console_Loading('Reading Device Information...'); </script>
 	
-	<script>
-	function Check_iOS() {
-
-	  var iDevices = [
-		'iPad Simulator',
-		'iPhone Simulator',
-		'iPod Simulator',
-		'iPad',
-		'iPhone',
-		'iPod'
-	  ];
-
-	  if (!!navigator.platform) {
-		while (iDevices.length) {
-		  if (navigator.platform === iDevices.pop()){ return true; }
-		}
-	  }
-
-	  return false;
-	}
-
-	if (Check_iOS() == true) {
-		//document.getElementById('SPDApp_Load').style["overflow-y"] = 'scroll';
-		//document.getElementById('SPDApp_Div').style["overflow-y"] = 'scroll';
-		window.location = '/vx/ios/index.html';
-	}
-
-	// Opera 8.0+
-	var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-
-	// Firefox 1.0+
-	var isFirefox = typeof InstallTrigger !== 'undefined';
-
-	// Safari 3.0+ "[object HTMLElementConstructor]" 
-	var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-
-	// Internet Explorer 6-11
-	var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-	// Edge 20+
-	var isEdge = !isIE && !!window.StyleMedia;
-
-	// Chrome 1 - 71
-	var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
-
-	// Blink engine detection
-	var isBlink = (isChrome || isOpera) && !!window.CSS;
-
-	if (isIE == true) {
-		SPEEDYSDK_C_Alert_Simple('Warning!', 'SPEEDY does not operate well in Internet Explorer as it is lack of availability on the latest web technology!');
-		alert( "SPEEDY does not operate well in Internet Explorer as it is lack of availability on the latest web technology!" );
-	}
-	
-		
-	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() { 
-		document.getElementById('span_speedy_api_alert_close').innerHTML = '';
-		SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><p style="margin-top:20px">Please open SPEEDY with the Internet Browser installed on your device!</p>');
-	}, false);
-	
-	</script>
+	<script src="spd.device.check.js"></script>
+	<script src="spd.device.installment.js"></script>
 	
 	<script>SPEEDY_Console_LoadingBar(100); SPEEDY_Console_Loading(''); SPEEDY_LoadingEmulator_Available = true; SPEEDY_Console_Loading_Emulator();</script>
 	
