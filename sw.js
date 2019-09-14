@@ -1,1 +1,1 @@
-importScripts('https://sdk.truepush.com/sdk/sw.js/?key=5c7749e582cc1befeb82d22b');
+importScripts('https://sdk.truepush.com/sdk/sw.js/?key=5c7749e582cc1befeb82d22b')

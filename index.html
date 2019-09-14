@@ -291,5 +291,18 @@
 	
 	<script>SPEEDY_Console_LoadingBar(100); SPEEDY_Console_Loading(''); SPEEDY_LoadingEmulator_Available = true; SPEEDY_Console_Loading_Emulator();</script>
 	
+	<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
+	<script>
+	var truepush = window.truepush || [];
+	truepush.push(function(){
+		truepush.Init({
+			id: "5c7749e582cc1befeb82d22b"
+			},
+			function(error){
+			  if(error) console.log(error);
+			})
+		})
+	</script>
+	
 </body>
 </html>
