@@ -10,7 +10,6 @@
 
 	<link rel="apple-touch-icon" href="https://speedy.spd.thepixelplaces.com/icon/res/mipmap-xhdpi/SPEEDY.png">
 	
-	<link rel="manifest" href="/manifest.webmanifest">
 	<meta name="application-name" content="SPEEDY">
 	
 	<!-- start: Apple Fullscreen and Webapp Title -->
@@ -22,6 +21,8 @@
 	<!-- start: Android Fullscreen -->
 	<meta name="mobile-web-app-capable" content="yes">
 	<!-- end: Android Fullscreen -->
+	
+	<link rel="manifest" href="/manifest.json">
 		
 	<title>SPEEDY for iOS | Made Web Application Platform Simple | By SPD the Super Pixel Dev</title>
 
@@ -92,6 +93,7 @@ function SPEEDY_App_LoadingDisplay() {
 }
 
 function SPEEDY_App_Launch() {
+  if (SPEEDY_App_Window !== '' || SPEEDY_App_Window !== null) { SPEEDY_App_Window.close(); }
   var SPEEDY_App_Window =  window.open('http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest','SPEEDY_App','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
   SPEEDY_App_Window.focus();
   return false;
