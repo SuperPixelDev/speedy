@@ -92,9 +92,11 @@ function SPEEDY_App_LoadingDisplay() {
 	document.getElementById('SPDApp_Loading').innerHTML = '<p><div class="spinner-border text-speedy" style="width: 3rem; height: 3rem;" role="status"> <span class="sr-only">Loading...</span> </div></p><h2>SPEEDY</h2><p>Web Application Platform Made Simple<br/><small>By SPD the Super Pixel Dev.</small></p><p>Please wait for a few seconds...</p>';
 }
 
+var spd_browser_target = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
+
 function SPEEDY_App_Launch() {
   //if (SPEEDY_App_Window !== '' || SPEEDY_App_Window !== null) { SPEEDY_App_Window.close(); }
-  var SPEEDY_App_Window =  window.open('http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest','SPEEDY_App_Window','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
+  var SPEEDY_App_Window = window.open(spd_browser_target,'SPEEDY_App_Window','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
   SPEEDY_App_Window.focus();
   return false;
 }
@@ -125,7 +127,7 @@ function Check_iOS() {
 }
 
 if (Check_iOS() !== true) {
-	window.location = 'http://speedy.spd.thepixelplaces.com/';
+	//window.location = 'http://speedy.spd.thepixelplaces.com/';
 }
 
 	</script>
@@ -267,6 +269,7 @@ if (Check_iOS() !== true) {
 					<p><span id="uc_app_name">Please select the app you want to use in the main page.</span></p>
 					<p id="speedy_menu">
 						<a href="#" class="btn btn-success btn-lg btn-block" onclick="SPEEDY_App_Launch()"><i class="fas fa-rocket"></i> Launch</a>
+						<a href="#" class="btn btn-secondary btn-lg btn-block" onclick="window.open(spd_browser_target, '_blank')">Alternative Launcher</a>
 						<a href="#" class="btn btn-secondary btn-sm btn-block" onclick="SPEEDY_App_Change()">Change the App</a>
 					</p>
 					<hr>
