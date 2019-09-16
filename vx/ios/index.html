@@ -92,13 +92,15 @@ function SPEEDY_App_LoadingDisplay() {
 	document.getElementById('SPDApp_Loading').innerHTML = '<p><div class="spinner-border text-speedy" style="width: 3rem; height: 3rem;" role="status"> <span class="sr-only">Loading...</span> </div></p><h2>SPEEDY</h2><p>Web Application Platform Made Simple<br/><small>By SPD the Super Pixel Dev.</small></p><p>Please wait for a few seconds...</p>';
 }
 
-var spd_browser_target = 'http://'+user_appid+'-speedy.vphs.top/speedy/?spd_first=true&spd_user_name=guest&spd_user_id=guest';
+var spd_browser_target = 'http://'+user_appid+'-speedy.vphs.top/speedy/?vx_ios=true&vx_key=';
 
 function SPEEDY_App_Launch() {
   //if (SPEEDY_App_Window !== '' || SPEEDY_App_Window !== null) { SPEEDY_App_Window.close(); }
-  var SPEEDY_App_Window = window.open(spd_browser_target,'SPEEDY_App_Window','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
-  SPEEDY_App_Window.focus();
-  return false;
+  //var SPEEDY_App_Window = window.open(spd_browser_target,'SPEEDY_App_Window','width=500,height=500,toolbar=0,menubar=0,location=1,status=0,scrollbars=1,resizable=1,left=0,top=0');
+  //SPEEDY_App_Window.focus();
+  //return false;
+  var SPEEDY_App_Window = window.open(spd_browser_target, '_blank');
+  //SPEEDY_App_Window.focus();
 }
 
 function SPEEDY_App_Change() {
@@ -127,7 +129,11 @@ function Check_iOS() {
 }
 
 if (Check_iOS() !== true) {
-	//window.location = 'http://speedy.spd.thepixelplaces.com/';
+	window.location = 'http://speedy.spd.thepixelplaces.com/';
+}
+
+if (location.protocol !== 'https:') {
+	location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 }
 
 	</script>
@@ -221,13 +227,6 @@ if (Check_iOS() !== true) {
 			color: #009688 !important;
 		}
 	</style>
-			
-  
-	<script>
-	  if (location.protocol !== 'https:') {
-		  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-	  }
-	</script>
 	
 </head>
 
@@ -269,7 +268,6 @@ if (Check_iOS() !== true) {
 					<p><span id="uc_app_name">Please select the app you want to use in the main page.</span></p>
 					<p id="speedy_menu">
 						<a href="#" class="btn btn-success btn-lg btn-block" onclick="SPEEDY_App_Launch()"><i class="fas fa-rocket"></i> Launch</a>
-						<a href="#" class="btn btn-secondary btn-lg btn-block" onclick="window.open(spd_browser_target, '_blank')">Alternative Launcher</a>
 						<a href="#" class="btn btn-secondary btn-sm btn-block" onclick="SPEEDY_App_Change()">Change the App</a>
 					</p>
 					<hr>
@@ -366,6 +364,26 @@ if (Check_iOS() !== true) {
 	  </div>
 	</div>
 	
+	<div class="modal fade" id="SPEEDY_AddToHomeScreen" tabindex="-1" role="dialog" aria-labelledby="SPEEDY_AddToHomeScreenLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="SPEEDY_AddToHomeScreenLabel">Add to Home Screen to install SPEEDY</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<img class="mb-2" style="width:100%" src="addtohomescreen-min.png" />
+			<p class="text-center lead">Please add SPEEDY to Home Screen to install as a standalone web application!</p>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity=
 "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -375,6 +393,10 @@ if (Check_iOS() !== true) {
 			document.getElementById('span_speedy_api_alert_title').innerHTML = title;
 			document.getElementById('span_speedy_api_alert_content').innerHTML = message;
 			$('#SPEEDY_API_Alert').modal();
+		}
+		
+		if (window.navigator.standalone !== true) {
+			$('#SPEEDY_AddToHomeScreen').modal();
 		}
 		
 if (user_appid !== '') {
