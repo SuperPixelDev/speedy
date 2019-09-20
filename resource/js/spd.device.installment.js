@@ -18,6 +18,6 @@ document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
 	document.getElementById('span_speedy_api_alert_close').innerHTML = '';
 	document.getElementById('span_speedy_download').innerHTML = 'You cannot download the file as you are using WeChat Browser.';
 	$('#VX_Notification').modal('hide');
-	SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><p style="margin-top:20px" class="text-center lead">Please open SPEEDY with the Internet Browser installed on your device!</p><p>1. Tap <b><i class="fas fa-ellipsis-v"></i></b> at the top-right navigation bar.</p><p>2. Select <b><i class="fas fa-globe-americas"></i> Open with Browser</b>.</p></div>');
+	SPEEDYSDK_C_Alert_Simple('WeChat Browser Detected!', '<img src="//qdcwapp.com/speedy/file/img/wechat_browser.jpg" style="width:100%" /><p style="margin-top:20px" class="text-center lead">Please open SPEEDY with the Internet Browser installed on your device!</p><p>1. Tap <b><i class="fas fa-ellipsis-h"></i></b> at the top-right of the WeChat navigation bar.</p><p>2. Select <b><i class="fas fa-globe-americas"></i> Open with Browser</b>.</p></div>');
 	WeixinJSBridge.invoke('showOptionMenu',{},function(res){});
 }, false);
